@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ZipMap.Model;
 
 namespace ZipMap.Controllers
 {
@@ -31,5 +32,32 @@ namespace ZipMap.Controllers
         {
             return View();
         }
+
+        public IActionResult Zip()
+        {
+            return View();
+        }
+
+        public IActionResult Map1(ZipLocation location)
+        {
+            return View(location);
+        }
+
+        public IActionResult Map2(ZipLocation location)
+        {
+            return View(location);
+        }
+
+        public IActionResult Map3(ZipLocation location)
+        {
+            return View(location);
+        }
+
+        public IActionResult Map4(ZipLocation location)
+        {
+            return View(location);
+        }
+
+
     }
 }
