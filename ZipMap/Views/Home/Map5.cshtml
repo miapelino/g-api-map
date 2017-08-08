@@ -1,13 +1,9 @@
-﻿@model ZipLocation
-@using ZipMap.Model;
-
-@{
+﻿@{
     ViewData["Title"] = "Zip";
     //var thisaddress = Model.ZipCode;
 }
 <div class="container">
     <br />
-    Zip Code: @Model.ZipCode
 </div>
 
 <input id="address" type="hidden" value="">
@@ -16,18 +12,21 @@
 <script>
 
     function initMap() {
-        document.getElementById('address').value = @Model.ZipCode.ToString();
+        
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
+            zoom: 9,
             center: { lat: 40.07, lng: -102.0 }
         });
         var geocoder = new google.maps.Geocoder();
 
-        geocodeAddress(geocoder, map);
+        geocodeAddress(geocoder, map, '43201');
+        geocodeAddress(geocoder, map, '43212');
+        geocodeAddress(geocoder, map, '43209');
+        geocodeAddress(geocoder, map, '43221');
+        geocodeAddress(geocoder, map, '43206');
     }
 
-    function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
+    function geocodeAddress(geocoder, resultsMap, address) {
         geocoder.geocode({ 'address': address }, function (results, status) {
             if (status === 'OK') {
                 resultsMap.setCenter(results[0].geometry.location);
