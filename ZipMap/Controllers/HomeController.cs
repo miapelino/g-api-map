@@ -45,6 +45,9 @@ namespace ZipMap.Controllers
             return View(location);
         }
 
-
+        public IActionResult Map6(ZipLocation location)
+        {
+            return View(location);
+        }
     }
 }
